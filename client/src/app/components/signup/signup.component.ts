@@ -4,16 +4,19 @@ import { User } from 'src/app/models/User'
 
 import { UsersService } from '../../services/users.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
-  @HostBinding('class') classes = 'row';
+  encPassword: string;
 
+  @HostBinding('class') classes = 'row';
   user: User = {
     id_user: 0,
     nick_user:'',
@@ -28,6 +31,8 @@ export class SignupComponent implements OnInit {
   }
 
   saveNewUser(){
+    this.encPassword = this.user.email_user;
+    this.user.password_user = CryptoJS.AES.encrypt(this.user.password_user.trim(), this.encPassword.trim()).toString();
     this.userService.saveUser(this.user)
       .subscribe(
         res => {
