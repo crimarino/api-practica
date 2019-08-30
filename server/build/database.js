@@ -1,3 +1,4 @@
+"use strict";
 /* import mysql from 'promise-mysql';
 
 import keys from './keys';
@@ -10,4 +11,4 @@ pool.getConnection()
         console.log('DB is Connected');
     });
 
-export default pool; */
+export default pool; */ 
