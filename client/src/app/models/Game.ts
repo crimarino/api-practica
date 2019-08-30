@@ -4,5 +4,4 @@ export interface Game{
     description?: string;
     image?: string;
     created_at?: Date;
-    id_cliente?: number;
 }
