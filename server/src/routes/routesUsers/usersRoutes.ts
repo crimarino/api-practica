@@ -10,7 +10,7 @@ class UsersRoutes {
     }
 
     config(): void {
-        this.router.get('/:id', usersController.getOne);
+        this.router.get('/:email_user', usersController.getOne);
         this.router.post('/', usersController.create);
     }
 }

@@ -22,7 +22,7 @@ class UsersController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { email_user } = req.params;
-            const users = yield databases_1.default.query('SELECT password_user FROM users WHERE email_user = ?', [email_user]);
+            const users = yield databases_1.default.query('SELECT email_user, password_user FROM users WHERE email_user = ?', [email_user]);
             if (users.length > 0) {
                 return res.json(users.password_user);
             }

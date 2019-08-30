@@ -11,7 +11,7 @@ class UsersController{
 
     public async getOne (req: Request, res: Response): Promise<any>{
         const { email_user } = req.params;
-        const users = await pool.query('SELECT password_user FROM users WHERE email_user = ?', [email_user]);
+        const users = await pool.query('SELECT email_user, password_user FROM users WHERE email_user = ?', [email_user]);
         if(users.length > 0){
             return res.json(users.password_user);
         }

@@ -11,7 +11,7 @@ class UsersRoutes {
         this.config();
     }
     config() {
-        this.router.get('/:id', usersControllers_1.default.getOne);
+        this.router.get('/:email_user', usersControllers_1.default.getOne);
         this.router.post('/', usersControllers_1.default.create);
     }
 }

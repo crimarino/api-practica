@@ -25,8 +25,8 @@ export class SigninComponent implements OnInit {
 
   getInfoUser() {
     const params = this.activatedRoute.snapshot.params;
-    if (params.password_user) {
-      this.userService.getUser(params.password_user)
+    if (params.email_user) {
+      this.userService.getUser(params.email_user)
         .subscribe(
           res => {
             console.log(res);
