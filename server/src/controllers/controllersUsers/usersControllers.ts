@@ -13,7 +13,7 @@ class UsersController{
         const { email_user } = req.params;
         const users = await pool.query('SELECT email_user, password_user FROM users WHERE email_user = ?', [email_user]);
         if(users.length > 0){
-            return res.json(users.password_user);
+            return res.json(users[0]);
         }
         res.status(404).json({text: "The user doesn´t exists"});
     }
