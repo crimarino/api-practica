@@ -11,8 +11,8 @@ export class UsersService {
 
   API_URI = 'http://localhost:3000/api';
 
-    getUser(password_user: string) {
-      return this.http.get(`${this.API_URI}/users/${password_user}`);
+    getUser(email_user: string) {
+      return this.http.get(`${this.API_URI}/users/${email_user}`);
     } 
   
     saveUser(user: User) {

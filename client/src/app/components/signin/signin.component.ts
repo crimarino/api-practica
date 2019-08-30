@@ -24,13 +24,13 @@ export class SigninComponent implements OnInit {
   }
 
   getInfoUser() {
-    const params = this.activatedRoute.snapshot.params;
-    if (params.email_user) {
-      this.userService.getUser(params.email_user)
+    const params = this.user.email_user;
+    if (params) {
+      this.userService.getUser(params)
         .subscribe(
           res => {
             console.log(res);
-            this.user = res;
+            this.router.navigate(['/games']);
           },
           err => console.log(err)
         )
