@@ -3,8 +3,9 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 
-import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes';
+import gamesRoutes from './routes/routesGames/gamesRoutes';
+import indexUsersRoutes from './routes/routesUsers/indexUsersRoutes';
+import usersRoutes from './routes/routesUsers/usersRoutes';
 
 class Server {
 public app: Application;
@@ -22,8 +23,9 @@ public app: Application;
         this.app.use(express.urlencoded({extended: false}));
     }
     routes() {
-        this.app.use('/', indexRoutes);
         this.app.use('/api/games', gamesRoutes);
+        this.app.use('/', indexUsersRoutes);
+        this.app.use('/api/users', usersRoutes);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

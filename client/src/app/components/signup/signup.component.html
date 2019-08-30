@@ -1,0 +1,31 @@
+<div class="container p-4">
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3>Signup</h3>
+          </div>
+          <div class="card-body">
+              <div class="form-group">
+                <input type="text" name="name_user" [(ngModel)]="user.name_user" placeholder="Name and Last Name" class="form-control" autofocus>
+              </div>
+
+              <div class="form-group">
+                <input type="text" name="nick_user" [(ngModel)]="user.nick_user" placeholder="User" class="form-control">
+              </div>
+              <div class="form-group">
+                  <input type="email" name="email_user" [(ngModel)]="user.email_user" placeholder="Email" class="form-control">
+                </div>
+              <div class="form-group">
+                <input type="password" name="password_user" [(ngModel)]="user.password_user" placeholder="Password" class="form-control">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-block" routerLink="/signup" (click)="saveNewUser()">
+                  Save
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
