@@ -11,11 +11,8 @@ class UsersRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', usersControllers_1.default.list);
         this.router.get('/:id', usersControllers_1.default.getOne);
         this.router.post('/', usersControllers_1.default.create);
-        this.router.put('/:id', usersControllers_1.default.put);
-        this.router.delete('/:id', usersControllers_1.default.delete);
     }
 }
 const usersRoutes = new UsersRoutes();

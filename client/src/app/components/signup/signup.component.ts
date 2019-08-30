@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
   saveNewUser(){
     this.encPassword = this.user.email_user;

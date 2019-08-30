@@ -13,12 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const databases_1 = __importDefault(require("../../databases"));
 class UsersController {
-    list(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const games = yield databases_1.default.query('SELECT * FROM users');
-            res.json(games);
-        });
-    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             databases_1.default.query('INSERT INTO users set ?', [req.body]);
@@ -27,26 +21,12 @@ class UsersController {
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const users = yield databases_1.default.query('SELECT * FROM users WHERE id_user = ?', [id]);
+            const { email_user } = req.params;
+            const users = yield databases_1.default.query('SELECT password_user FROM users WHERE email_user = ?', [email_user]);
             if (users.length > 0) {
-                return res.json(users[0]);
+                return res.json(users.password_user);
             }
             res.status(404).json({ text: "The user doesn´t exists" });
-        });
-    }
-    put(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield databases_1.default.query('UPDATE users set ? WHERE id_user = ?', [req.body, id]);
-            res.json({ message: 'The user was updated' });
-        });
-    }
-    delete(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield databases_1.default.query('DELETE FROM users WHERE id_user = ?', [id]);
-            res.json({ message: 'The user was deleted' });
         });
     }
 }
