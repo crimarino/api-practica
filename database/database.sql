@@ -17,5 +17,4 @@ CREATE TABLE games (
     image VARCHAR(200),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_cliente int(5) NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES cliente(id_user)
 );
